@@ -36,8 +36,8 @@
 #ifndef Scoreboard_H
 #define Scoreboard_H
 
-#define Scoreboard_WIDTH 10
-#define Scoreboard_HEIGHT 16
+#define Scoreboard_WIDTH 20
+#define Scoreboard_HEIGHT 31
 
 const static uint8_t Scoreboard[] PROGMEM = {
     0x30, 0x86, // size
