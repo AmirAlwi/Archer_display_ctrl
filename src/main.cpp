@@ -45,7 +45,7 @@ void loop()
 				if(_input == "A" || _input == "B" || \
 					_input == "C" || _input == "E" || \
 					_input == "F" || _input == "G"){ //timer
-
+						dmd.clear();
 						if (_input == "A")
 							duration = 30;
 						else if (_input == "B")
@@ -120,6 +120,7 @@ void loop()
 			if ((timer == start )&& (millis()-lastmillis >= 1000)){
 				dmd.clear();
 
+   				lastmillis = millis();
 				if (countdown < 0)
 				{	
 					timer = stop;
@@ -144,7 +145,7 @@ void loop()
 					countdown = countdown - 1;
 
 				} else {
-
+					
 					if (start_duration >= 10)
 						dmd.drawText(21, 1, String(start_duration));
 					else
@@ -152,7 +153,6 @@ void loop()
 					start_duration = start_duration - 1;
 				}
 
-   				lastmillis = millis();
 			}
 		}
 	}
