@@ -121,18 +121,6 @@ void loop()
 				dmd.clear();
 
    				lastmillis = millis();
-				if (countdown < 0)
-				{	
-					timer = stop;
-					status = idle;
-					countdown = duration;
-					if (countdown >= 100)
-						dmd.drawText(0, 1, String(countdown));
-					else if (countdown >= 10)
-						dmd.drawText(21, 1, String(countdown));
-					start_duration = 10;
-					break;
-				}
 
 				if (start_duration < 1){
 
@@ -150,7 +138,26 @@ void loop()
 						dmd.drawText(21, 1, String(start_duration));
 					else
 						dmd.drawText(42, 1, String(start_duration));
+					
+					if (start_duration == 10)
+						Serial.write("2");
 					start_duration = start_duration - 1;
+					if (start_duration <1)
+						Serial.write("1");
+				}
+
+				if (countdown < 0)
+				{	
+					Serial.write("3");
+					timer = stop;
+					status = idle;
+					countdown = duration;
+					if (countdown >= 100)
+						dmd.drawText(0, 1, String(countdown));
+					else if (countdown >= 10)
+						dmd.drawText(21, 1, String(countdown));
+					start_duration = 10;
+					break;
 				}
 
 			}
